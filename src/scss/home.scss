@@ -1,0 +1,466 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+/* Styles for the navigation menu component. */
+nav {
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+
+  .logo i {
+    font-size: 2.5rem;
+    color: hsl(180, 52%, 46%);
+  }
+
+  ul {
+    margin-right: 1rem;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+
+    li {
+      height: 100%;
+      position: relative;
+      display: grid;
+      grid-template-rows: auto;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        color: hsl(0, 0%, 30%);
+        text-transform: uppercase;
+      }
+
+      span {
+        width: calc(100% + 2px);
+        height: 2px;
+        margin-top: 0.3rem;
+        position: absolute;
+        bottom: 2px;
+        border: 2px solid hsl(44, 88%, 56%);
+        display: none;
+        transition: all ease 0.25s;
+      }
+
+      &:hover span {
+        display: block;
+      }
+    }
+
+    > li + li {
+      margin-left: 2rem;
+    }
+  }
+
+  .burger {
+    height: 100%;
+    display: none;
+    cursor: pointer;
+
+    .menu {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      justify-self: end;
+
+      .line {
+        width: 2.5rem;
+        height: 2px;
+        background-color: hsl(0, 0%, 30%);
+      }
+    }
+  }
+
+  .mobile-nav {
+    padding-top: 1rem;
+    list-style-type: none;
+    display: grid;
+    grid-template-rows: auto;
+    display: none;
+
+    > * + * {
+      margin-top: 1rem;
+    }
+
+    div {
+      a {
+        text-decoration: none;
+        color: hsl(0, 0%, 30%);
+      }
+    }
+  }
+}
+
+/* Styles for the hero component. */
+.masthead {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url('/img/matrix.jpg') no-repeat center center scroll;
+
+  h1 {
+    margin-bottom: 40px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11vmin;
+    color: #eee;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+  }
+
+  .explore-button {
+    background: hsl(187, 88%, 30%);
+    color: hsl(0, 0%, 100%);
+    transition: background ease 0.25s;
+    border-radius: 6px;
+    display: inline-block;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin: 0;
+    text-decoration: none;
+    font-size: 2vmin;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:hover {
+      background: hsl(181, 100%, 20%);
+      color: hsl(184, 100%, 70%);
+    }
+
+    &:focus {
+      outline: 1px solid hsl(0, 0%, 100%);
+      outline-offset: -4px;
+    }
+  }
+
+  .icon-container {
+    i {
+      font-size: 3rem;
+      color: hsl(0, 0%, 100%);
+    }
+  }
+}
+
+/* Styles for the services component. */
+.services {
+  padding: 10rem 7rem;
+  color: hsl(0, 0%, 30%);
+  background-color: hsl(190, 55%, 96%);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 5rem;
+
+  > * {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+  }
+
+  figure {
+    font-size: 3rem;
+    color: hsl(0, 0%, 65%);
+  }
+
+  div > div * + * {
+    margin-top: 1rem;
+    line-height: 2;
+  }
+}
+
+/* Styles for the expertise component. */
+.expertise {
+  padding: 10rem 7rem;
+  color: hsl(0, 0%, 30%);
+  display: grid;
+  gap: 5rem;
+
+  .title {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto;
+
+    h1 {
+      font-size: 4vmin;
+    }
+
+    .underline {
+      width: 3rem;
+      height: 5px;
+      background-color: hsl(44, 88%, 56%);
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 3rem;
+
+    .entry {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto;
+      gap: 3rem;
+
+      > div {
+        align-self: center;
+      }
+
+      .branding {
+        width: 30rem;
+        height: 5px;
+        background-color: hsl(0, 0%, 90%);
+        position: relative;
+
+        &::before {
+          width: 90%;
+          height: 100%;
+          content: '';
+          background-color: hsl(0, 0%, 30%);;
+          position: absolute;
+        }
+      }
+
+      .design {
+        width: 30rem;
+        height: 5px;
+        background-color: hsl(0, 0%, 90%);
+        position: relative;
+
+        &::before {
+          width: 80%;
+          height: 100%;
+          content: '';
+          background-color: hsl(0, 0%, 30%);;
+          position: absolute;
+        }
+      }
+
+      .development {
+        width: 30rem;
+        height: 5px;
+        background-color: hsl(0, 0%, 90%);
+        position: relative;
+
+        &::before {
+          width: 85%;
+          height: 100%;
+          content: '';
+          background-color: hsl(0, 0%, 30%);;
+          position: absolute;
+        }
+      }
+
+      .description {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+/* Styles for the stories component. */
+.stories {
+  min-width: 100vw;
+  min-height: 70vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+
+  .background-picture {
+    background: url('/img/ideas-whiteboard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+  }
+
+  .content {
+    padding: 9rem 10rem;
+    background-color: hsl(190, 55%, 96%);
+    display: grid;
+    grid-template-rows: auto 10rem 1fr;
+
+    h1 {
+      font-size: 6vmin;
+    }
+
+    .underline {
+      width: 3.8rem;
+      height: 5px;
+      background-color: hsl(44, 88%, 56%);
+      align-self: center;
+    }
+
+    .paragraphs * + * {
+      margin-top: 1rem;
+    }
+
+    p {
+      line-height: 2;
+    }
+  }
+}
+
+/* Styles for the footer component. */
+footer {
+  .primary {
+    padding: 10rem;
+    background-color: hsl(0, 0%, 40%);
+    display: grid;
+    grid-template-rows: auto;
+    justify-content: center;
+
+    figure {
+      display: grid;
+      grid-template-rows: auto 3rem;
+
+      i {
+        font-size: 2.5rem;
+        color: hsl(180, 52%, 46%);
+        justify-self: center;
+      }
+
+      .underline {
+        width: 10rem;
+        height: 3px;
+        background-color: hsl(44, 88%, 56%);
+        justify-self: center;
+        align-self: center;
+      }
+    }
+
+    ul {
+      padding: 3rem 0 4rem;
+      list-style-type: none;
+      display: flex;
+
+      > li + li {
+        margin-left: 2rem;
+      }
+
+      li {
+        a {
+          text-decoration: none;
+          color: hsl(0, 0%, 100%);
+        }
+      }
+    }
+
+    div {
+      p {
+        color: hsl(0, 0%, 80%);
+        text-align: center;
+      }
+
+      * + * {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .secondary {
+    padding: 3rem;
+    background-color: hsl(0, 0%, 30%);
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .expertise {
+    .content {
+      .entry {
+        grid-template-columns: auto;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .stories {
+    grid-template-columns: 1fr;
+
+    .background-picture {
+      display: none;
+    }
+
+    .content {
+      padding: 10rem 7rem;
+
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 838px) {
+  nav {
+    padding-right: 3rem;
+
+    ul {
+      display: none;
+    }
+
+    .burger {
+      display: grid;
+    }
+
+    .mobile-nav {
+      display: grid;
+    }
+  }
+
+  .masthead {
+    height: 60vh;
+  }
+
+  .expertise {
+    .title {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .content {
+      grid-template-columns: auto;
+      gap: 3rem;
+    }
+  }
+}

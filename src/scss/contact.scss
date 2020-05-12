@@ -1,0 +1,140 @@
+.contact-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin-top: 7rem;
+  display: grid;
+
+  .sub-container {
+    min-width: 70vw;
+    max-height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: hsl(190, 55%, 96%);
+    justify-self: center;
+
+    .contact-info {
+      padding: 3rem 0;
+      min-width: 100%;
+      min-height: 100%;
+      background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.5) 30%,
+          rgba(0, 0, 0, 0.65) 100%
+        ),
+        url('/img/buildings.jpg') no-repeat center center scroll;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      color: hsl(0, 0, 100%);
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        li + li {
+          margin-top: 2rem;
+        }
+
+        li {
+          display: grid;
+          grid-template-columns: 4rem 1fr;
+          text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+
+          div {
+            i {
+              margin-top: 0.5rem;
+              font-size: 1.5rem;
+              color: hsl(0, 0%, 83%);
+            }
+          }
+
+          div {
+            * + * {
+              margin-top: 1rem;
+            }
+
+            p {
+              color: hsl(0, 0%, 80%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    padding: 2rem 4rem;
+    color: hsl(0, 0%, 25%);
+    display: grid;
+    gap: 2rem;
+    grid-template-rows: auto 1fr;
+
+    h1 {
+      justify-self: center;
+      font-size: 2rem;
+    }
+
+    form {
+      display: grid;
+
+      > div + div:not(:last-child) {
+        margin-top: 2rem;
+      }
+
+      div {
+
+        .name {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          input + input {
+            border-left: none;
+          }
+
+          input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid hsl(0, 0%, 83%);
+          }
+        }
+
+        input {
+          padding: 0.5rem;
+          font-size: 1rem;
+          border: 1px solid hsl(0, 0%, 83%);
+        }
+
+        textarea {
+          width: 100%;
+          padding: 0.5rem;
+          font-size: 1rem;
+          border: 1px solid hsl(0, 0%, 83%);
+        }
+
+        button {
+          padding: 0.8rem 3rem;
+          font-size: 1rem;
+          text-transform: uppercase;
+          background-color: hsl(120, 38%, 44%);
+          color: hsl(0, 0%, 100%);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  .contact-container {
+    .sub-container {
+      grid-template-columns: auto;
+
+      .contact-info {
+        display: none;
+      }
+    }
+  }
+}
