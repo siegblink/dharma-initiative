@@ -42,5 +42,5 @@ module.exports = {
   ],
 
   // Tell webpack to set the environment in development mode
-  mode: 'development',
+  mode: 'production',
 }
